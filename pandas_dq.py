@@ -980,7 +980,7 @@ class Fix_DQ(BaseEstimator, TransformerMixin):
 
         # Get the number of unique types in each column
         self.mixed_type_cols_ = []
-        mixed_types = X.applymap(type).nunique()
+        mixed_types = X.map(type).nunique()
         # Get the columns with more than one type
         self.mixed_type_cols_ = mixed_types[mixed_types > 1].index.tolist()
         if len(self.mixed_type_cols_) > 0:
